@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ATHEOkeGarden">
         <activity
+            android:name=".layoutone.detail.FirstLayoutDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutone.FirstLayoutMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

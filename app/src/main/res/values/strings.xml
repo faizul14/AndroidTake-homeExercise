@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ATHEOkeGarden</string>
+    <string name="your_api_key">Your Api Key</string>
+    <string name="submit">Submit</string>
+    <string name="city_name">City Name</string>
+    <string name="celcius">Celcius</string>
+    <string name="fahrenheint">Fahrenheint</string>
+
+    <string-array name="country">
+        <item>Kuala Lumpur</item>
+        <item>Singapore</item>
+    </string-array>
 </resources>
