@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.atheokegarden.databinding.ActivityMainBinding
 import com.example.atheokegarden.layoutone.FirstLayoutMainActivity
 import com.example.atheokegarden.layoutone.detail.FirstLayoutDetailActivity
+import com.example.atheokegarden.secondlayout.SecondLayoutActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -13,6 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        startActivity(Intent(this, FirstLayoutMainActivity::class.java))
+        startActivity(Intent(this, SecondLayoutActivity::class.java))
     }
 }

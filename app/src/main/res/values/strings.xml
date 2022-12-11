@@ -6,6 +6,8 @@
     <string name="celcius">Celcius</string>
     <string name="fahrenheint">Fahrenheint</string>
     <string name="key">ff9f895b2e884d6680530135202710</string>
+    <string name="detail_produk">Detail Produk</string>
+    <string name="deskription_ex">1 Tanaman (Philodendron burle-marxii\n1 Kartu Ucapan (Christimas/New Year)\nCare Tips\nPaper Bag\nAdditional Cookies (Putri Salju/Choco Mede)</string>
 
     <string-array name="country">
         <item>Kuala Lumpur</item>

@@ -9,4 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="buton">#F95F6B</color>
     <color name="buton_dis">#68F95F6B</color>
+    <color name="bg_cd">#BFE0D2</color>
+    <color name="tr">#00BFE0D2</color>
+    <color name="bg_txtview">#2D9556</color>
+    <color name="rating_color">#F7CE0C</color>
+    <color name="bg_btn2">#07CE83</color>
+    <color name="color_cr">#FAF5F2</color>
+
 </resources>
