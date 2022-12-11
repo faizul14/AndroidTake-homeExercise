@@ -2,12 +2,17 @@ package com.example.atheokegarden.layoutone
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.atheokegarden.R
+import com.example.atheokegarden.core.utils.ViewModelFactory
 import com.example.atheokegarden.databinding.ActivityFirstLayoutMainBinding
 
-class FirstLayoutMainActivity : AppCompatActivity() {
+class FirstLayoutMainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityFirstLayoutMainBinding
+    private lateinit var viewModel: ViewModelFirstMainLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFirstLayoutMainBinding.inflate(layoutInflater)
@@ -16,5 +21,21 @@ class FirstLayoutMainActivity : AppCompatActivity() {
         val country = resources.getStringArray(R.array.country)
         val arrayAdapter = ArrayAdapter(this, R.layout.drop_down, country)
         binding.autocompletetext.setAdapter(arrayAdapter)
+
+        val factory = ViewModelFactory.getInstance()
+        viewModel = ViewModelProvider(this, factory)[ViewModelFirstMainLayout::class.java]
+
+        binding.btnSubmit.setOnClickListener(this)
+        viewModel.data.observe(this){data ->
+            Toast.makeText(this, "celcius ${data.tempC}, farhaneit ${data.tempF}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onClick(p0: View?) {
+        when(p0?.id){
+            R.id.btn_submit -> {
+                viewModel.getSuhu("ff9f895b2e884d6680530135202710","Singapore")
+            }
+        }
     }
 }
