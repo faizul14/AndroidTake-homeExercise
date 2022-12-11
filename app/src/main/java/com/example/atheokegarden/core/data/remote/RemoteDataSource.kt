@@ -8,18 +8,13 @@ import com.example.atheokegarden.core.data.remote.response.ResponseSuhu
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RemoteDataSource private constructor(private val apiService: ApiService) {
+@Singleton
+class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
     companion object {
         const val TAG = "RemoteDataSource"
-
-        @Volatile
-        var INSTANCE: RemoteDataSource? = null
-
-        fun getInstance(service: ApiService): RemoteDataSource =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: RemoteDataSource(service)
-            }
     }
 
     fun getSuhu(key: String, country: String): LiveData<ResponseSuhu> {

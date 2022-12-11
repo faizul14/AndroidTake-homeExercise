@@ -5,17 +5,18 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.atheokegarden.R
 import com.example.atheokegarden.core.data.remote.response.Current
-import com.example.atheokegarden.core.utils.ViewModelFactory
 import com.example.atheokegarden.databinding.ActivityFirstLayoutMainBinding
 import com.example.atheokegarden.layoutone.detail.FirstLayoutDetailActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FirstLayoutMainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityFirstLayoutMainBinding
-    private lateinit var viewModel: ViewModelFirstMainLayout
+    private val viewModel: ViewModelFirstMainLayout by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFirstLayoutMainBinding.inflate(layoutInflater)
@@ -24,9 +25,6 @@ class FirstLayoutMainActivity : AppCompatActivity(), View.OnClickListener {
         val country = resources.getStringArray(R.array.country)
         val arrayAdapter = ArrayAdapter(this, R.layout.drop_down, country)
         binding.autocompletetext.setAdapter(arrayAdapter)
-
-        val factory = ViewModelFactory.getInstance()
-        viewModel = ViewModelProvider(this, factory)[ViewModelFirstMainLayout::class.java]
 
         binding.btnSubmit.setOnClickListener(this)
     }

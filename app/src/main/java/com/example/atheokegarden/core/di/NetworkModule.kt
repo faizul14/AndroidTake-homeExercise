@@ -1,13 +1,21 @@
-package com.example.atheokegarden.core.data.remote.network
+package com.example.atheokegarden.core.di
 
+import com.example.atheokegarden.core.data.remote.network.ApiService
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object ApiConfig {
-    private fun provideOkHttpClient(): OkHttpClient {
+@Module
+@InstallIn(SingletonComponent::class)
+class NetworkModule {
+    @Provides
+    fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
@@ -15,6 +23,7 @@ object ApiConfig {
             .build()
     }
 
+    @Provides
     fun provideApiService(): ApiService {
         val retrofit = Retrofit.Builder()
             .baseUrl("http://api.weatherapi.com/v1/")

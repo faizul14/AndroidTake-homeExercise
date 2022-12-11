@@ -6,19 +6,11 @@ import com.example.atheokegarden.core.data.remote.RemoteDataSource
 import com.example.atheokegarden.core.domain.model.ModelSuhu
 import com.example.atheokegarden.core.domain.repository.IRepository
 import com.example.atheokegarden.core.utils.DataMapper
+import javax.inject.Inject
 
-class Repository private constructor(
+class Repository @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) : IRepository {
-    companion object {
-        @Volatile
-        var INSTANCE: Repository? = null
-
-        fun getInstance(remote: RemoteDataSource): Repository =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: Repository(remote)
-            }
-    }
 
     override fun getSuhu(api: String, country: String): LiveData<ModelSuhu> {
         return Transformations.map(remoteDataSource.getSuhu(api, country)) {

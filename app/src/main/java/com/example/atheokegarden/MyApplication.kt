@@ -1,6 +1,7 @@
 package com.example.atheokegarden
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-open class MyApplication: Application() {
-}
+@HiltAndroidApp
+open class MyApplication : Application()
