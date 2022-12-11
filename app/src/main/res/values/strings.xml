@@ -5,6 +5,7 @@
     <string name="city_name">City Name</string>
     <string name="celcius">Celcius</string>
     <string name="fahrenheint">Fahrenheint</string>
+    <string name="key">ff9f895b2e884d6680530135202710</string>
 
     <string-array name="country">
         <item>Kuala Lumpur</item>

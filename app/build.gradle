@@ -59,4 +59,7 @@ dependencies {
     //hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    //RXJava
+    implementation "io.reactivex.rxjava2:rxjava:2.2.19"
+    implementation "com.jakewharton.rxbinding2:rxbinding:2.0.0"
 }

@@ -24,7 +24,7 @@ class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
             override fun onResponse(call: Call<ResponseSuhu>, response: Response<ResponseSuhu>) {
                 val responseBosy = response.body()
                 if (response.isSuccessful && responseBosy != null) {
-                    data.value = responseBosy
+                    data.value = responseBosy!!
                 } else {
                     Log.d(TAG, response.message())
                 }
