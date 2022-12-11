@@ -14,8 +14,7 @@
         android:theme="@style/Theme.ATHEOkeGarden">
         <activity
             android:name=".secondlayout.SecondLayoutActivity"
-            android:exported="false"
-            android:ScreenOrientation="portrait"/>
+            android:exported="false"/>
         <activity
             android:name=".layoutone.detail.FirstLayoutDetailActivity"
             android:exported="false" />
