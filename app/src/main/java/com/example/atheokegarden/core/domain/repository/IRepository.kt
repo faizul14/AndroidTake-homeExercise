@@ -5,5 +5,5 @@ import com.example.atheokegarden.core.data.remote.response.ResponseSuhu
 import com.example.atheokegarden.core.domain.model.ModelSuhu
 
 interface IRepository {
-    fun getSuhu(api: String, country: String) : LiveData<ResponseSuhu>
+    fun getSuhu(api: String, country: String) : LiveData<ModelSuhu>
 }
