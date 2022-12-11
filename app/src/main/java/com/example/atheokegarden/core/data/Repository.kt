@@ -2,6 +2,7 @@ package com.example.atheokegarden.core.data
 
 import androidx.lifecycle.LiveData
 import com.example.atheokegarden.core.data.remote.RemoteDataSource
+import com.example.atheokegarden.core.data.remote.response.ResponseSuhu
 import com.example.atheokegarden.core.domain.model.ModelSuhu
 import com.example.atheokegarden.core.domain.repository.IRepository
 import com.example.atheokegarden.core.utils.DataMapper
@@ -19,9 +20,10 @@ class Repository private constructor(
             }
     }
 
-    override fun getSuhu(api: String, country: String): ModelSuhu {
+    override fun getSuhu(api: String, country: String): LiveData<ResponseSuhu> {
         val data = remoteDataSource.getSuhu(api,country)
-        return data?.current?.let { DataMapper.DataResponseToModel(it) }!!
+//        return DataMapper.DataResponseToModel(data.current) as LiveData<ModelSuhu>
+        return data
     }
 
 

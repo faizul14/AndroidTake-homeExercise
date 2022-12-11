@@ -7,10 +7,5 @@ import com.example.atheokegarden.core.domain.model.ModelSuhu
 import com.example.atheokegarden.core.domain.usecase.UseCase
 
 class ViewModelFirstMainLayout(private val useCase: UseCase): ViewModel() {
-    val _data = MutableLiveData<ModelSuhu>()
-    val data: LiveData<ModelSuhu> = _data
-
-    fun getSuhu(key: String, country: String){
-        _data.value = useCase.getSuhu(key,country)
-    }
+    fun data(key: String, country: String) = useCase.getSuhu(key,country)
 }

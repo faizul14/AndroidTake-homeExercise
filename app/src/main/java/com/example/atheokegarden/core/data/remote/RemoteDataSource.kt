@@ -22,14 +22,14 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
             }
     }
 
-    fun getSuhu(key: String, country: String): ResponseSuhu? {
-        var data : ResponseSuhu? = null
+    fun getSuhu(key: String, country: String): LiveData<ResponseSuhu> {
+        var data = MutableLiveData<ResponseSuhu>()
         val client = apiService.getSuhu(key, country)
         client.enqueue(object : Callback<ResponseSuhu> {
             override fun onResponse(call: Call<ResponseSuhu>, response: Response<ResponseSuhu>) {
                 val responseBosy = response.body()
                 if (response.isSuccessful && responseBosy != null) {
-                    data = responseBosy
+                    data.value = responseBosy
                 } else {
                     Log.d(TAG, response.message())
                 }
