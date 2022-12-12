@@ -11,6 +11,7 @@ import com.example.atheokegarden.R
 import com.example.atheokegarden.core.data.remote.response.Current
 import com.example.atheokegarden.databinding.ActivityFirstLayoutMainBinding
 import com.example.atheokegarden.layoutone.detail.FirstLayoutDetailActivity
+import com.example.atheokegarden.secondlayout.SecondLayoutActivity
 import com.jakewharton.rxbinding2.widget.RxTextView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +28,7 @@ class FirstLayoutMainActivity : AppCompatActivity(), View.OnClickListener {
         val arrayAdapter = ArrayAdapter(this, R.layout.drop_down, country)
         binding.autocompletetext.setAdapter(arrayAdapter)
         binding.btnSubmit.setOnClickListener(this)
+        binding.btnNextWithLotie.setOnClickListener(this)
         val emailStream = RxTextView.textChanges(binding.autocompletetext)
             .skipInitialValue()
             .map { text ->
@@ -67,6 +69,7 @@ class FirstLayoutMainActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
             }
+            R.id.btn_next_with_lotie -> startActivity(Intent(this, SecondLayoutActivity::class.java))
         }
     }
 }
